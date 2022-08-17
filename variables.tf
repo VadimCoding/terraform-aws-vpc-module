@@ -22,8 +22,28 @@ variable "assign_generated_ipv6_cidr_block" {
   description = "Whether or not to assign a ipv6 cidr block to the VPC."
 }
 
-variable "name" {
+variable "vpc_name" {
   type        = string
   default     = "MyTerraformVPC"
   description = "A name tag for the new created VPC."
+}
+
+variable "public_subnet" {
+  type = map
+  default = {
+    cidr_block = "10.0.1.0/24"
+    availability_zone = "eu-west-3a"
+    name = "public-subnet"
+  }
+  description = "The configuraiton of the public subnet."
+}
+
+variable "private_subnet" {
+  type = map
+  default = {
+    cidr_block = "10.0.101.0/24"
+    availability_zone = "eu-west-3b"
+    name = "private-subnet"
+  }
+  description = "The configuraiton of the private subnet."
 }
