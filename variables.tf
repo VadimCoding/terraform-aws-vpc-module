@@ -29,21 +29,21 @@ variable "vpc_name" {
 }
 
 variable "public_subnet" {
-  type = map
+  type = map(any)
   default = {
-    cidr_block = "10.0.1.0/24"
+    cidr_block        = "10.0.1.0/24"
     availability_zone = "eu-west-3a"
-    name = "public-subnet"
+    name              = "public-subnet"
   }
   description = "The configuraiton of the public subnet."
 }
 
 variable "private_subnet" {
-  type = map
+  type = map(any)
   default = {
-    cidr_block = "10.0.101.0/24"
+    cidr_block        = "10.0.101.0/24"
     availability_zone = "eu-west-3b"
-    name = "private-subnet"
+    name              = "private-subnet"
   }
   description = "The configuraiton of the private subnet."
 }

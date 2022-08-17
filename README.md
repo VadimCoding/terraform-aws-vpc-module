@@ -13,7 +13,19 @@ module "vpc" {
   enable_dns_support = true
   enable_dns_hostnames = true
   assign_generated_ipv6_cidr_block = true
-  name = "my-vpc-from-module"
+  vpc_name = "my-vpc-from-module"
+
+  public_subnet = {
+    cidr_block = "10.0.1.0/24"
+    availability_zone = "eu-west-3a"
+    name = "public-subnet"
+  }
+
+  private_subnet = {
+    cidr_block = "10.0.101.0/24"
+    availability_zone = "eu-west-3b"
+    name = "private-subnet"
+  }
 }
 ```
 
@@ -26,7 +38,7 @@ No requirements.
 
 | Name | Version |
 |------|---------|
-| <a name="provider_aws"></a> [aws](#provider\_aws) | n/a |
+| <a name="provider_aws"></a> [aws](#provider\_aws) | 4.26.0 |
 
 ## Modules
 
