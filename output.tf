@@ -28,7 +28,7 @@ output "default_network_acl_id" {
   description = "The ID of the defautl network ACL associated to the VPC."
 }
 
-output "default_security_group_id " {
+output "default_security_group_id" {
   value = aws_vpc.my_vpc.default_security_group_id
   description = "The ID of the security group associated to the VPC."
 }
