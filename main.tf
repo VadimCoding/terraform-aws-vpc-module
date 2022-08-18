@@ -14,18 +14,31 @@ resource "aws_subnet" "public" {
   availability_zone       = var.public_subnet["availability_zone"]
   map_public_ip_on_launch = true
 
+
+}
+
+resource "aws_subnet" "public" {
+  for_each = var.public_subnets
+
+  vpc_id                  = aws_vpc.vpc.id
+  cidr_block              = each.value.cidr_block
+  availability_zone       = each.value.availability_zone
+  map_public_ip_on_launch = true
+
   tags = {
-    Name = var.public_subnet["name"]
+    Name = each.value.name
   }
 }
 
 resource "aws_subnet" "private" {
+  for_each = var.private_subnets
+
   vpc_id                  = aws_vpc.vpc.id
-  cidr_block              = var.private_subnet["cidr_block"]
-  availability_zone       = var.private_subnet["availability_zone"]
-  map_public_ip_on_launch = false
+  cidr_block              = each.value.cidr_block
+  availability_zone       = each.value.availability_zone
+  map_public_ip_on_launch = true
 
   tags = {
-    Name = var.private_subnet["name"]
+    Name = each.value.name
   }
 }

@@ -28,22 +28,20 @@ variable "vpc_name" {
   description = "A name tag for the new created VPC."
 }
 
-variable "public_subnet" {
-  type = map(any)
-  default = {
-    cidr_block        = "10.0.1.0/24"
-    availability_zone = "eu-west-3a"
-    name              = "public-subnet"
-  }
-  description = "The configuraiton of the public subnet."
+variable "public_subnets" {
+  type = list(object({
+    cidr_block        = string
+    availability_zone = string
+    name              = string
+  }))
+  description = "A list of public subnets."
 }
 
-variable "private_subnet" {
-  type = map(any)
-  default = {
-    cidr_block        = "10.0.101.0/24"
-    availability_zone = "eu-west-3b"
-    name              = "private-subnet"
-  }
-  description = "The configuraiton of the private subnet."
+variable "private_subnets" {
+  type = list(object({
+    cidr_block        = string
+    availability_zone = string
+    name              = string
+  }))
+  description = "A list of private subnets."
 }
