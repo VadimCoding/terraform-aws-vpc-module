@@ -44,7 +44,7 @@ output "VPC_tags" {
 }
 
 output "PUB_SUB_arn" {
-  value       = aws_subnet.public.arn
+  value       = aws_subnet.public[each.key].arn
   description = "ARN of the public subnet."
 }
 
