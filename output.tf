@@ -43,22 +43,22 @@ output "VPC_tags" {
   description = "Tags associated to the VPC resource."
 }
 
-output "PUB_SUB_arn" {
-  value       = aws_subnet.public[each.key].arn
+output "PUB_SUB_arns" {
+  value       = aws_subnet.public.*.arn
   description = "ARN of the public subnet."
 }
 
-output "PUB_SUB_id" {
-  value       = aws_subnet.public.id
+output "PUB_SUB_ids" {
+  value       = aws_subnet.public.*.id
   description = "ID of the public subnet."
 }
 
-output "PRIV_SUB_arn" {
-  value       = aws_subnet.private.arn
+output "PRIV_SUB_arnss" {
+  value       = aws_subnet.private.*.arn
   description = "ARN of the private subnet."
 }
 
-output "PRIV_SUB_id" {
-  value       = aws_subnet.private.id
+output "PRIV_SUB_ids" {
+  value       = aws_subnet.private.*.id
   description = "ID of the private subnet."
 }
