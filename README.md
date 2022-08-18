@@ -1,7 +1,7 @@
 # AWS VPC Terraform module
 Terraform module which deploy a VPC.
 
-<img src="https://img.shields.io/badge/aws-4.26.0-orange"> <img src="https://img.shields.io/badge/terraform-0.13-blueviolet">
+<img src="https://img.shields.io/badge/aws-4.26.0-orange"> <img src="https://img.shields.io/badge/terraform-1.2.3-blueviolet">
 
 
 ## Usage
